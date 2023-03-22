@@ -10,7 +10,7 @@ fun translation(transferAmount: Double, cardType: String = "VK Pay", amountOfPre
     }
 
     val commission = when(cardType) {
-        "Mastercard", "Maestro" -> if (transferAmount > 75000.0) transferAmount * 0.006 + 20 else 0.0
+        "Mastercard", "Maestro" -> if (amountOfPreviousTransfers > 75000.0) transferAmount * 0.006 + 20 else 0.0
         "Visa", "Мир" -> if (transferAmount * 0.0075 > 35) transferAmount * 0.0075 else 35.0
         "VK Pay" -> 0.0
         else -> 0.0
